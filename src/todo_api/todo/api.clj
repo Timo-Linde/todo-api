@@ -1,5 +1,8 @@
 (ns todo-api.todo.api
-  (:require [todo-api.storage.storage :refer [fetch persist]]))
+  (:require
+    [todo-api.storage.api :refer [fetch persist]]
+    [todo-api.storage.atom]
+    [todo-api.storage.edn-file]))
 
 (defn- update-todo-entry
   [todo name description]
