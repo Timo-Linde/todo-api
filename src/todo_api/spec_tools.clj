@@ -5,4 +5,5 @@
 (defn check-spec-or-throw
   [spec data]
   (when-not (s/valid? spec data)
-    (throw (IllegalArgumentException. (s/explain spec data)))))
+    (throw (ex-info "Data invalid!" {:type :invalid-spec
+                                     :msg  (s/explain-str spec data)}))))

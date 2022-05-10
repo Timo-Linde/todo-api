@@ -7,6 +7,8 @@
   (fn [request]
     (try
       (handler request)
-      (catch IllegalArgumentException ex
-        (println "Exception catched:" (pr-str ex))
-        (rr/not-found (pr-str ex))))))
+      (catch Exception ex
+        (let [{:keys [type msg]} (ex-data ex)]
+          (case type
+            :invalid-spec (rr/not-found msg)
+            (rr/status 500)))))))
