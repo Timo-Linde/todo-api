@@ -2,6 +2,11 @@
   (:require
     [ring.util.response :as rr]))
 
+(defn- handle-unknown-error
+  [ex]
+  (println "Unknown Api Error:" (pr-str ex))
+  (rr/status 500))
+
 (defn catch-spec-mw
   [handler]
   (fn [request]
@@ -11,4 +16,4 @@
         (let [{:keys [type msg]} (ex-data ex)]
           (case type
             :invalid-spec (rr/not-found msg)
-            (rr/status 500)))))))
+            (handle-unknown-error ex)))))))

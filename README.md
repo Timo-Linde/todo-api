@@ -17,5 +17,5 @@ The API provides a mechanism to add and remove **TASKs** from the **TODO** as we
 * READ TASK: GET /todos/:id/tasks/:task-id
 * UPDATE TASK: PATCH /todos/:id/tasks/:task-id
 * DELETE TASK: DELETE /todos/:id/taks/:task-id
-* LIST TSAKS: GET /todos/:id/tasks
+* LIST TASKS: GET /todos/:id/tasks
 
