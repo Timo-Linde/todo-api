@@ -6,10 +6,10 @@
     [ring.middleware.defaults :as ring-defaults]
     [ring.middleware.format :as ring-mw-format]
     [ring.middleware.resource :as ring-mw-resource]
-    [ring.util.response :as rr]
     [todo-api.middleware.catch-spec :as catch-spec-mw]
     [todo-api.task.rest :as task-rest]
-    [todo-api.todo.rest :as todo-rest]))
+    [todo-api.todo.rest :as todo-rest]
+    [todo-api.swagger.generate :as swagger]))
 
 (defn- wrap-response
   [handler]
@@ -43,6 +43,9 @@
     (cp/DELETE "/todos/:todo-id/tasks/:task-id" [todo-id task-id]
       (task-rest/delete-task todo-id task-id))
 
+    (cp/GET "/swagger.json" _req
+      swagger/json-response)
+
     (route/not-found "Not Found!")
     ))
 
@@ -52,8 +55,7 @@
   (->
     (routes)
     (catch-spec-mw/catch-spec-mw)
-    ;;(wrap-response)
-    ;;(ring-mw-resource/wrap-resource "public")
+    (ring-mw-resource/wrap-resource "public")
     (ring-mw-format/wrap-restful-format)
     (ring-defaults/wrap-defaults ring-defaults/api-defaults)
     ))
