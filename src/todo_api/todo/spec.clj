@@ -7,4 +7,4 @@
 (s/def ::name string?)
 (s/def ::description string?)
 
-(s/def ::todo (s/keys :req-un [::id ::name ::description ::task/tasks]))
+(s/def ::todo (s/keys :req-un [::name ::description] :opt-un [::task/tasks]))

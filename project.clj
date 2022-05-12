@@ -9,7 +9,12 @@
                  [ring "1.9.5"]
                  [ring-middleware-format "0.7.4"]
                  [ring/ring-defaults "0.3.3"]
-                 [metosin/spec-tools "0.10.5"]]
+                 [metosin/spec-tools "0.10.5"]
+
+                 [org.clojure/core.async "1.5.648"]
+                 [io.replikativ/konserve "0.7.270" :exclusions
+                  [org.clojure/clojurescript
+                   org.clojure/tools.analyzer.jvm]]]
   :main ^:skip-aot todo-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
