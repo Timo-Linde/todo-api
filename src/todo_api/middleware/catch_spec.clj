@@ -16,4 +16,5 @@
         (let [{:keys [type msg]} (ex-data ex)]
           (case type
             :invalid-spec (rr/not-found msg)
+            :invalid-key (rr/not-found msg)
             (handle-unknown-error ex)))))))
