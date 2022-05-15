@@ -4,6 +4,7 @@
     [todo-api.storage.utils :refer [check-key-exist-or-throw]]
     [todo-api.storage.api :as store]
     [todo-api.storage.atom]
+    [todo-api.storage.edn-file]
     [todo-api.todo.spec :as todo-spec]))
 
 (defn- update-todo-entry

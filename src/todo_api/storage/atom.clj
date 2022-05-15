@@ -77,11 +77,3 @@
   (with-fetch
     (fn [store]
       (keys store))))
-
-(defmethod api/fetch :atom
-  []
-  (fetch))
-
-(defmethod api/persist :atom
-  [new-store]
-  (persist new-store))

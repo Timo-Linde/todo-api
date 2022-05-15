@@ -3,8 +3,8 @@
 
 (def implementation
   (constantly
-    #_:edn-file
-    :atom))
+    :edn-file
+    #_:atom))
 
 (defmulti assoc
   implementation)
@@ -31,11 +31,4 @@
   implementation)
 
 (defmulti keys
-  implementation)
-
-;;; Remove Old implementation:
-(defmulti fetch
-  implementation)
-
-(defmulti persist
   implementation)

@@ -3,6 +3,7 @@
     [todo-api.spec-tools :as spec-tools]
     [todo-api.storage.api :as storage]
     [todo-api.storage.atom]
+    [todo-api.storage.edn-file]
     [todo-api.storage.utils :refer [check-key-exist-or-throw]]
     [todo-api.task.spec :as task-spec]
     [todo-api.todo.api :as todo-api]
